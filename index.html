@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Development Exercise</title>
+  <meta charset=\"UTF-8\">
+  <link type="text/css" rel="Stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      margin: auto;
+      width: 60%;
+    }
+    .modal-body button {
+      width: 320px;
+    }
+    .modal-body textarea {
+      width: 100%;
+      height: 10em;
+    }
+    .modal-body #alert {
+      color: #F00;
+    }
+    #error {
+      color: #F00;
+    }
+  </style>
+</head>
+<body>
+  <h1>Development Exercise.</h1>
+  <br/>
+  <h2>Showing <span>0</span> items.</h2>
+  <br/>
+  <span id="error"></span>
+
+  <!-- List container -->
+  <ul class="container-fluid list-group" id="itemList">
+  </ul>
+
+  <button type="button" class="btn btn-info btn-lg" onclick="edit(null)">New Item</button>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit item</h4>
+        </div>
+        <div class="modal-body">
+          <!-- image -->
+          <img src="resources/empty.svg" width="320" height="auto"/>
+          <br/>
+          <span id="alert"></span><br/>
+
+          <!-- file -->
+          Upload new file:
+          <form method="post" enctype="multipart/form-data"  action="server/uploadFile.php">
+            <input type="file" name="images" id="images" />
+            <button type="submit" id="btn">Upload Files!</button>
+          </form>
+          <br/>
+          <br/>
+          <!-- description -->
+          <textarea placeholder="Description (300 max)" maxlength="300"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="save">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/back.js"></script>
+  <script src="js/front.js"></script>
+  <script src="js/upload.js"></script>
+  <script src="js/draganddrop.js"></script>
+  <script src="js/modalevents.js"></script>
+  <script src="js/helpers.js"></script>
+
+</body>
